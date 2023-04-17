@@ -26,6 +26,12 @@ public class NotaCompraService {
 		return em.find(NotaCompra.class, id);
 	}
 	
+	public NotaCompra buscarNotaCompraPeloIdComListaItem(Long id) {
+		NotaCompra notaCompra = em.find(NotaCompra.class, id);
+		notaCompra.getListaNotaCompraItem().size();
+		return notaCompra;
+	}
+	
 	public List<NotaCompra> listarNotaCompra(){
 		return em.createQuery("select n from NotaCompra n", NotaCompra.class)
 				.getResultList();
